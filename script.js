@@ -231,3 +231,18 @@ console.log(
   '%cBuilt with HTML · CSS · Vanilla JS\nLet\'s connect → sbadired@asu.edu',
   'color:#9898b8;font-family:monospace;font-size:12px;'
 );
+
+
+const SOCIAL_LINKS = {
+  github: "https://github.com/badireddisatyasaivarun",
+  linkedin: "https://www.linkedin.com/in/badireddi-satya-sai-varun-a59921169/",
+  substack: "https://substack.com/@sbadired"
+};
+
+document.querySelectorAll("[data-social]").forEach(link => {
+  const key = link.dataset.social;
+
+  if (SOCIAL_LINKS[key]) {
+    link.href = SOCIAL_LINKS[key];
+  }
+});
