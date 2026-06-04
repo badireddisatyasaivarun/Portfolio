@@ -131,21 +131,9 @@ function nextLine() {
 
 setTimeout(nextLine, 800);
 
-/* ── CONTACT FORM — EmailJS ─────────────────────
- *
- *  SETUP (5 minutes, free):
- *  1. Sign up at https://www.emailjs.com (free tier = 200 emails/month)
- *  2. Add an Email Service (Gmail / Outlook / etc.) → note your SERVICE_ID
- *  3. Create an Email Template with these variables:
- *       {{from_name}}   {{from_email}}   {{subject}}   {{message}}
- *     → note your TEMPLATE_ID
- *  4. Go to Account → API Keys → copy your Public Key
- *  5. In index.html replace  YOUR_PUBLIC_KEY  with it
- *  6. Replace  YOUR_SERVICE_ID  and  YOUR_TEMPLATE_ID  below
- *
- * ────────────────────────────────────────────── */
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
+/* ── CONTACT FORM — EmailJS ────────────────*/
+const EMAILJS_SERVICE_ID  = 'service_sjdaeeo';
+const EMAILJS_TEMPLATE_ID = 'template_7fz71f3';
 
 function handleFormSubmit(e) {
   e.preventDefault();
