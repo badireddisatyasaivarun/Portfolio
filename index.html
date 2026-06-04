@@ -1,402 +1,479 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Satya Sai Varun Badireddi | Software Engineer</title>
-    <meta
-      name="description"
-      content="Portfolio for Satya Sai Varun Badireddi, a software engineer building scalable full-stack applications, event-driven systems, and cloud-native services."
-    >
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='10'%20fill='%23111318'/%3E%3Ctext%20x='32'%20y='40'%20text-anchor='middle'%20font-size='22'%20font-family='Arial'%20font-weight='700'%20fill='white'%3ESB%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="./styles.css?v=20260601-justify-p">
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varun Badireddi — Software Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Fallback if Clash Display isn't available via standard Google Fonts embed -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet" />
+  <!-- EmailJS — enables real contact form delivery with no backend -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // ── STEP 1: Replace YOUR_PUBLIC_KEY with your EmailJS Public Key
+    // ── Get it at: https://www.emailjs.com → Account → API Keys
+    (function(){ emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" }); })();
+  </script>
+</head>
+<body>
 
-    <header class="site-header" data-header>
-      <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="brand" href="#home" aria-label="Satya home">
-          <span class="brand-mark">SB</span>
-          <span class="brand-text">
-            <strong>Satya</strong>
-            <span>Software Engineer</span>
-          </span>
-        </a>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">VB<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="assets/Satya_Sai_Varun_Badireddi_Resume_06_01_26.pdf" download class="nav-resume-btn">
+      <span>Resume</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </nav>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation" data-nav-toggle>
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </button>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about"       class="mob-link">About</a></li>
+      <li><a href="#experience"  class="mob-link">Experience</a></li>
+      <li><a href="#projects"    class="mob-link">Projects</a></li>
+      <li><a href="#skills"      class="mob-link">Skills</a></li>
+      <li><a href="#contact"     class="mob-link">Contact</a></li>
+      <li><a href="assets/Satya_Sai_Varun_Badireddi_Resume_06_01_26.pdf" download class="mob-link mob-resume">Download Resume ↓</a></li>
+    </ul>
+  </div>
 
-        <div class="nav-links" id="primary-nav" data-nav-links>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-          <a class="nav-resume" href="./assets/Satya_Sai_Varun_Badireddi_Resume_06_01_26.pdf" download>
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <path d="M7 10l5 5 5-5"></path>
-              <path d="M12 15V3"></path>
-            </svg>
-            Resume
-          </a>
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section id="hero">
+    <div class="hero-grain"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+
+    <div class="hero-inner">
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal-fade" style="--d:0s">
+          <span class="status-dot"></span>
+          Open to Full-time SWE Roles
         </div>
-      </nav>
-    </header>
 
-    <main id="main">
-      <section class="hero" id="home" aria-labelledby="hero-title">
-        <canvas id="system-canvas" aria-hidden="true"></canvas>
-        <div class="hero-shade" aria-hidden="true"></div>
+        <h1 class="hero-headline reveal-fade" style="--d:.12s">
+          <span class="line-1">Satya Sai</span>
+          <span class="line-2">Varun <em>Badireddi</em></span>
+        </h1>
 
-        <div class="hero-content">
-          <p class="eyebrow">Full-stack systems engineer</p>
-          <h1 id="hero-title">Satya Sai Varun Badireddi</h1>
-          <p class="hero-copy">
-            Software engineer with 2+ years designing production-scale platforms, event-driven microservices, full-stack applications, and AWS-native deployments using Node.js, Spring Boot, Angular, Kafka, and Kubernetes.
-          </p>
+        <p class="hero-role reveal-fade" style="--d:.24s">
+          Backend &amp; Full-Stack Engineer
+        </p>
 
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#projects">
-              <span>View Projects</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M5 12h14"></path>
-                <path d="M13 5l7 7-7 7"></path>
-              </svg>
+        <p class="hero-sub reveal-fade" style="--d:.32s">
+          Java · Spring Boot · TypeScript · AWS · Kafka · Kubernetes
+        </p>
+
+        <div class="hero-actions reveal-fade" style="--d:.42s">
+          <a href="#projects" class="btn-fill">View Projects</a>
+          <a href="#contact"  class="btn-outline">Let's Talk</a>
+        </div>
+
+        <div class="hero-stats reveal-fade" style="--d:.54s">
+          <div class="hstat">
+            <strong>2+</strong>
+            <span>Years Industry</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <strong>10K+</strong>
+            <span>Sellers Served</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <strong>3.97</strong>
+            <span>GPA @ ASU</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — terminal -->
+      <div class="hero-right reveal-fade" style="--d:.28s">
+        <div class="terminal">
+          <div class="term-bar">
+            <span class="tb-dot tb-red"></span>
+            <span class="tb-dot tb-yellow"></span>
+            <span class="tb-dot tb-green"></span>
+            <span class="tb-title">varun@portfolio ~ zsh</span>
+          </div>
+          <div class="term-body" id="terminalBody"></div>
+        </div>
+        <!-- floating chips -->
+        <div class="hero-chip chip-1">☕ Java</div>
+        <div class="hero-chip chip-2">⚡ Kafka</div>
+        <div class="hero-chip chip-3">☸ K8s</div>
+      </div>
+    </div>
+
+    <!-- scroll hint -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+        <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+        <circle class="scroll-wheel" cx="8" cy="7" r="2" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-label">01 — About</div>
+      <div class="about-layout">
+
+        <div class="about-headline">
+          <h2>Building Systems<br><em>That Scale.</em></h2>
+        </div>
+
+        <div class="about-body">
+          <p>I'm a Software Engineer with <strong>2+ years of production experience</strong> building scalable backend and full-stack applications. At <strong>CarDekho</strong>, I shipped seller management, auction, payment, and workflow automation systems that served tens of thousands of users daily.</p>
+          <p>Currently finishing my <strong>MS in Computer Software Engineering at Arizona State University</strong> (GPA 3.97), where I focus on distributed systems, cloud-native architecture, and data engineering. I hold an Integrated Dual Degree from <strong>IIT (BHU), Varanasi</strong>.</p>
+          <p>I get obsessed with event-driven design, reactive APIs, and infrastructure that just doesn't break.</p>
+
+          <div class="about-socials">
+            <a href="https://linkedin.com"  target="_blank" class="soc-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
             </a>
-            <a class="button secondary" href="mailto:sbadired@asu.edu">
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M4 4h16v16H4z"></path>
-                <path d="m22 6-10 7L2 6"></path>
-              </svg>
-              <span>Email Me</span>
-            </a>
-            <a class="button ghost" href="https://github.com/badireddisatyasaivarun" target="_blank" rel="noreferrer">
-              <span>GitHub</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M7 17 17 7"></path>
-                <path d="M7 7h10v10"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="impact-band" aria-label="Career impact highlights">
-        <dl class="impact-metrics">
-          <div>
-            <dt>10K+</dt>
-            <dd>sellers supported</dd>
-          </div>
-          <div>
-            <dt>70%</dt>
-            <dd>reduce support dependency</dd>
-          </div>
-          <div>
-            <dt>40%</dt>
-            <dd>throughput improvement</dd>
-          </div>
-          <div>
-            <dt>25%</dt>
-            <dd>fewer operational errors</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="section intro-section" id="about" aria-labelledby="about-title">
-        <div class="section-heading">
-          <p class="section-kicker">About</p>
-          <h2 id="about-title">Building useful systems from frontend workflows to distributed backend infrastructure that holds up at scale.</h2>
-        </div>
-
-        <div class="intro-grid">
-          <div class="intro-copy">
-            <p>
-              I work across product-facing applications and backend platforms, with a focus on reliable APIs,
-              event-driven workflows, and cloud deployments that stand up to production use.
-            </p>
-            <p>
-              At CarDekho, I helped build seller and auction-management services used by more than 10,000 sellers,
-              automated payment and inspection workflows, and improved operational throughput while reducing manual
-              dependency.
-            </p>
-          </div>
-
-          <div class="focus-list" aria-label="Engineering focus areas">
-            <article>
-              <span>01</span>
-              <h3>Event-driven platforms</h3>
-              <p>Kafka, Redis, AWS Lambda, SQS, and microservices for asynchronous, resilient workflows.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Full-stack product work</h3>
-              <p>Angular, React, NestJS, Express, Spring Boot, REST APIs, authentication, and user workflows.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Cloud-native delivery</h3>
-              <p>Docker, Kubernetes, Jenkins, GitHub Actions, AWS EC2, S3, ECS, Lambda, and CloudWatch.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section principles-section" aria-labelledby="principles-title">
-        <div class="section-heading compact">
-          <p class="section-kicker">Principles</p>
-          <h2 id="principles-title">How I like to build.</h2>
-        </div>
-
-        <div class="principle-grid">
-          <article>
-            <h3>Make the workflow real</h3>
-            <p>Model the end-to-end operating flow first, then engineer, automate, instrument, and deploy scalable services around it.</p>
-          </article>
-          <article>
-            <h3>Keep services observable</h3>
-            <p>Favor small services, clear contracts, automated pipelines, and enough telemetry to debug quickly.</p>
-          </article>
-          <article>
-            <h3>Design for scale early</h3>
-            <p>Use queues, caching, streaming, and containerized deployments where they remove pressure from the system.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="experience" aria-labelledby="experience-title">
-        <div class="section-heading">
-          <p class="section-kicker">Professional Experience</p>
-          <h2 id="experience-title">Engineering Production Systems Across Seller Platforms, Auctions, and Payment Workflows.</h2>
-        </div>
-
-        <article class="experience-card">
-          <div class="experience-meta">
-            <p class="company">CarDekho</p>
-            <p>Gurugram, India</p>
-            <p>July 2022 - Aug 2024</p>
-          </div>
-          <div class="experience-body">
-            <p class="role">Software Engineer</p>
-            <ul class="impact-list">
-              <li>Built a self-serve seller platform for bid management, account updates, and payments, serving 10K+ sellers and reducing support dependency by 70%.</li>
-              <li>Automated vehicle auction, inspection, and payout workflows with backend services and payment integrations, improving throughput by 40% and reducing operational errors by 25%.</li>
-              <li>Developed scalable applications using Angular, NestJS, microservices, REST APIs, Redis caching, AWS Lambda, and SQS.</li>
-              <li>Built and maintained Jenkins CI/CD pipelines with automated testing for backend deployments on AWS EC2.</li>
-              <li>Partnered with cross-functional teams to troubleshoot production issues and improve performance across seller and auction-management services.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="section-kicker">Projects</p>
-          <!-- <h2 id="projects-title">Selected systems, data, and machine learning work.</h2> -->
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-number">01</span>
-              <span class="project-type">Full-stack recommendations</span>
-            </div>
-            <h3>Anime Recommendation Platform</h3>
-            <p>
-              A full-stack recommendation platform with non-blocking APIs, authenticated user flows, and asynchronous
-              recommendation processing.
-            </p>
-            <ul>
-              <li>Built with React, Spring WebFlux, JWT authentication, PostgreSQL, Redis, Kafka, Docker, and Kubernetes.</li>
-              <li>Designed a content-based engine using genre and text similarity for personalized recommendations.</li>
-            </ul>
-            <div class="tag-row" aria-label="Technologies">
-              <span>React</span>
-              <span>Spring WebFlux</span>
-              <span>Kafka</span>
-              <span>Kubernetes</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-number">02</span>
-              <span class="project-type">Graph analytics</span>
-            </div>
-            <h3>Large-Scale Graph Data Analytics Pipeline</h3>
-            <p>
-              A graph analytics pipeline for trip and location data, using graph algorithms to surface relationships
-              across high-volume datasets.
-            </p>
-            <ul>
-              <li>Modeled large parquet datasets in Neo4j Graph Data Science with BFS and PageRank workflows.</li>
-              <li>Extended the architecture with Kafka streaming and Kubernetes orchestration through Minikube.</li>
-            </ul>
-            <div class="tag-row" aria-label="Technologies">
-              <span>Neo4j GDS</span>
-              <span>Docker</span>
-              <span>Kafka</span>
-              <span>PageRank</span>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="project-number">03</span>
-              <span class="project-type">Predictive modeling</span>
-            </div>
-            <h3>Depression Risk Prediction</h3>
-            <p>
-              An end-to-end machine learning pipeline for predictive analysis, with preprocessing, feature engineering,
-              imbalance handling, and model evaluation.
-            </p>
-            <ul>
-              <li>Trained Logistic Regression, Random Forest, and Gradient Boosting models with a soft-voting ensemble.</li>
-              <li>Optimized for Recall and F1-score, achieving 94% accuracy with an F1-score of 0.82.</li>
-            </ul>
-            <div class="tag-row" aria-label="Technologies">
-              <span>Python</span>
-              <span>scikit-learn</span>
-              <span>Ensembles</span>
-              <span>F1 0.82</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section skills-section" id="skills" aria-labelledby="skills-title">
-        <div class="section-heading">
-          <p class="section-kicker">Skills</p>
-          <h2 id="skills-title">A practical stack for product engineering and distributed systems.</h2>
-        </div>
-
-        <div class="skill-grid">
-          <section aria-labelledby="skill-languages">
-            <h3 id="skill-languages">Languages</h3>
-            <p>Java, JavaScript, TypeScript, SQL</p>
-          </section>
-          <section aria-labelledby="skill-frameworks">
-            <h3 id="skill-frameworks">Frameworks</h3>
-            <p>Spring Boot, WebFlux, Angular, Node.js, NestJS, Express, React, REST APIs</p>
-          </section>
-          <section aria-labelledby="skill-cloud">
-            <h3 id="skill-cloud">Cloud and DevOps</h3>
-            <p>Docker, Kubernetes, AWS Lambda, S3, EC2, ECS, SQS, CloudWatch, Jenkins, GitHub Actions</p>
-          </section>
-          <section aria-labelledby="skill-data">
-            <h3 id="skill-data">Data and Tools</h3>
-            <p>PostgreSQL, MySQL, MongoDB, Redis, Kafka, Neo4j, JUnit, Mockito, Git</p>
-          </section>
-        </div>
-      </section>
-
-      <section class="section education-section" id="education" aria-labelledby="education-title">
-        <div class="section-heading compact">
-          <p class="section-kicker">Education</p>
-          <h2 id="education-title">Formal training in software engineering and computer science fundamentals.</h2>
-        </div>
-
-        <div class="education-list">
-          <article>
-            <div>
-              <h3>Arizona State University</h3>
-              <p>Master of Science - Computer Software Engineering</p>
-            </div>
-            <div class="education-meta">
-              <span>Tempe, AZ</span>
-              <span>May 2026</span>
-              <strong>3.97 / 4</strong>
-            </div>
-          </article>
-          <article>
-            <div>
-              <h3>IIT (BHU), Varanasi</h3>
-              <p>Integrated Dual Degree - B.Tech + M.Tech</p>
-            </div>
-            <div class="education-meta">
-              <span>Varanasi, India</span>
-              <span>July 2017 - May 2022</span>
-              <strong>8.24 / 10</strong>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="contact-wrap">
-          <div>
-            <p class="section-kicker">Contact</p>
-            <h2 id="contact-title">Have an idea, opportunity, or project you would like to discuss?</h2>
-            <p>
-              I would be happy to connect.
-            </p>
-          </div>
-
-          <div class="contact-actions" aria-label="Contact actions">
-            <a class="contact-link contact-primary" href="mailto:sbadired@asu.edu">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M5 12h14"></path>
-                  <path d="M13 5l7 7-7 7"></path>
-                </svg>
-              </span>
-              Get In Touch
-            </a>
-            <a class="contact-link" href="mailto:sbadired@asu.edu">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M4 4h16v16H4z"></path>
-                  <path d="m22 6-10 7L2 6"></path>
-                </svg>
-              </span>
-              <span class="contact-text">
-                <strong>Email Me</strong>
-                <small>sbadired@asu.edu</small>
-              </span>
-            </a>
-            <a class="contact-link" href="https://linkedin.com/in/badireddi-satya-sai-varun-a59921169/" target="_blank" rel="noreferrer">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </span>
-              Connect on LinkedIn
-            </a>
-            <a class="contact-link" href="https://github.com/badireddisatyasaivarun" target="_blank" rel="noreferrer">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </span>
+            <a href="https://github.com"    target="_blank" class="soc-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
-            <button class="contact-link copy-button" type="button" data-copy-email="sbadired@asu.edu">
-              <span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-              </span>
-              <span data-copy-label>Copy Email</span>
-            </button>
+            <a href="https://substack.com"  target="_blank" class="soc-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+              Substack
+            </a>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <p>&copy; 2026 Satya Sai Varun Badireddi</p>
-      <a href="#home">Back to top</a>
-    </footer>
+        <div class="about-card">
+          <div class="ac-row"><span class="ac-key">Currently</span><span class="ac-val">MS @ ASU · Tempe, AZ</span></div>
+          <div class="ac-row"><span class="ac-key">Previously</span><span class="ac-val">SWE @ CarDekho</span></div>
+          <div class="ac-row"><span class="ac-key">Undergrad</span><span class="ac-val">IIT (BHU) — Integrated Dual Degree</span></div>
+          <div class="ac-row"><span class="ac-key">Email</span><span class="ac-val"><a href="mailto:sbadired@asu.edu">sbadired@asu.edu</a></span></div>
+          <div class="ac-row ac-row--highlight"><span class="ac-key">Status</span><span class="ac-val accent">● Available June 2026</span></div>
+        </div>
 
-    <div class="toast" role="status" aria-live="polite" data-toast>Email copied</div>
-    <script src="./script.js?v=20260601-revert1"></script>
-  </body>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+  <section id="experience" class="section-alt">
+    <div class="container">
+      <div class="sec-label">02 — Experience &amp; Education</div>
+      <h2 class="sec-title">Where I've <em>Worked &amp; Studied.</em></h2>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-marker work"></div>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div class="tl-meta">
+                <h3 class="tl-role">Software Engineer</h3>
+                <div class="tl-org">CarDekho &mdash; Gurugram, India</div>
+              </div>
+              <div class="tl-period">Jul 2022 &ndash; Aug 2024</div>
+            </div>
+            <ul class="tl-list">
+              <li>Built a self-serve seller platform for bid management, account updates, and payments &mdash; serving <strong>10K+ sellers</strong> and cutting support dependency by <strong>70%</strong>.</li>
+              <li>Automated vehicle auction, inspection, and payout workflows; improved processing throughput by <strong>40%</strong> and reduced operational errors by <strong>25%</strong>.</li>
+              <li>Developed full-stack features in Angular &amp; NestJS; integrated Redis caching and AWS Lambda + SQS for reliable event-driven workflows.</li>
+              <li>Built and maintained Jenkins CI/CD pipelines with automated testing on AWS EC2.</li>
+            </ul>
+            <div class="tl-chips">
+              <span>Angular</span><span>NestJS</span><span>Redis</span><span>AWS Lambda</span><span>SQS</span><span>Jenkins</span><span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-marker edu"></div>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div class="tl-meta">
+                <h3 class="tl-role">MS &mdash; Computer Software Engineering</h3>
+                <div class="tl-org">Arizona State University &mdash; Tempe, AZ</div>
+              </div>
+              <div class="tl-period">Expected May 2026</div>
+            </div>
+            <p class="tl-note">GPA <strong>3.97 / 4.00</strong> &middot; Focus: Distributed Systems, Cloud-Native Applications, Backend &amp; Full-Stack Development, Scalable Architecture.</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-marker edu"></div>
+          <div class="tl-card">
+            <div class="tl-top">
+              <div class="tl-meta">
+                <h3 class="tl-role">Integrated Dual Degree &mdash; B.Tech + M.Tech</h3>
+                <div class="tl-org">IIT (BHU), Varanasi, India</div>
+              </div>
+              <div class="tl-period">Jul 2017 &ndash; May 2022</div>
+            </div>
+            <p class="tl-note">GPA <strong>8.24 / 10</strong> &middot; Five-year integrated program at one of India's premier engineering institutions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJECTS ═══════════════════ -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-label">03 — Projects</div>
+      <h2 class="sec-title">Things I've <em>Built.</em></h2>
+
+      <!-- FEATURED -->
+      <div class="project-featured">
+        <div class="pf-header">
+          <div class="pf-number">01</div>
+          <span class="pf-badge">Featured</span>
+        </div>
+        <div class="pf-body">
+          <div class="pf-left">
+            <h3 class="pf-title">Anime Recommendation Platform</h3>
+            <p class="pf-desc">Full-stack recommendation system with content-based scoring engine, event-driven Kafka pipeline, Redis caching, and containerised microservices.</p>
+            <ul class="pf-list">
+              <li>JWT-secured non-blocking REST APIs via Spring Boot WebFlux</li>
+              <li>Kafka pipeline: user interaction → async event → cache invalidation → fresh recs</li>
+              <li>Scoring engine: genre similarity, ratings, watchlist boosts, disliked exclusions</li>
+              <li>Fully containerised: Docker Compose + Kubernetes manifests</li>
+            </ul>
+          </div>
+          <div class="pf-right">
+            <div class="pf-stack">
+              <div class="ps-label">Stack</div>
+              <div class="ps-tags">
+                <span>React</span><span>TypeScript</span><span>Spring WebFlux</span>
+                <span>Kafka</span><span>Redis</span><span>PostgreSQL</span>
+                <span>Docker</span><span>Kubernetes</span><span>JWT</span>
+              </div>
+            </div>
+            <a href="https://github.com" target="_blank" class="pf-github-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID PROJECTS -->
+      <div class="projects-grid">
+
+        <div class="proj-card">
+          <div class="pc-top">
+            <span class="pc-num">02</span>
+            <a href="https://github.com" target="_blank" class="pc-gh" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+          <h3 class="pc-title">Graph Data Analytics Pipeline</h3>
+          <p class="pc-desc">Scalable graph analytics pipeline on large-scale trip &amp; location datasets using BFS and PageRank via Neo4j Graph Data Science.</p>
+          <ul class="pc-list">
+            <li>Parquet → Neo4j graph ingest (nodes, edges, routes)</li>
+            <li>BFS for reachability · PageRank for location importance</li>
+            <li>Kafka streaming ingestion layer</li>
+            <li>Orchestrated with Docker + Kubernetes (Minikube)</li>
+          </ul>
+          <div class="pc-tags"><span>Neo4j</span><span>GDS</span><span>Kafka</span><span>Python</span><span>Docker</span><span>K8s</span><span>Cypher</span></div>
+        </div>
+
+        <div class="proj-card">
+          <div class="pc-top">
+            <span class="pc-num">03</span>
+            <a href="https://github.com" target="_blank" class="pc-gh" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+          <h3 class="pc-title">Depression Risk Prediction</h3>
+          <p class="pc-desc">End-to-end ML classification pipeline with ensemble learning, optimised for recall and F1-score on imbalanced health data.</p>
+          <ul class="pc-list">
+            <li>Preprocessing, feature engineering, imbalance handling</li>
+            <li>LR · Random Forest · Gradient Boosting comparison</li>
+            <li>Soft-voting ensemble → <strong>94% accuracy, F1: 0.82</strong></li>
+            <li>Optimised for recall — critical in risk-prediction</li>
+          </ul>
+          <div class="pc-tags"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Ensemble ML</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SKILLS ═══════════════════ -->
+  <section id="skills" class="section-alt">
+    <div class="container">
+      <div class="sec-label">04 — Skills</div>
+      <h2 class="sec-title">My <em>Tech Stack.</em></h2>
+
+      <div class="skills-layout">
+        <div class="skill-col">
+          <div class="sk-group">
+            <div class="sk-head">Backend</div>
+            <div class="sk-pills">
+              <span>Java</span><span>Spring Boot</span><span>Spring WebFlux</span>
+              <span>Node.js</span><span>NestJS</span><span>Express.js</span>
+              <span>REST APIs</span><span>Microservices</span><span>JWT</span>
+            </div>
+          </div>
+          <div class="sk-group">
+            <div class="sk-head">Frontend</div>
+            <div class="sk-pills">
+              <span>React</span><span>Angular</span><span>TypeScript</span>
+              <span>JavaScript</span><span>HTML</span><span>CSS</span><span>Tailwind</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col">
+          <div class="sk-group">
+            <div class="sk-head">Cloud &amp; DevOps</div>
+            <div class="sk-pills">
+              <span>AWS Lambda</span><span>AWS S3</span><span>AWS EC2</span>
+              <span>AWS ECS</span><span>AWS SQS</span><span>Docker</span>
+              <span>Kubernetes</span><span>Jenkins</span><span>GitHub Actions</span>
+            </div>
+          </div>
+          <div class="sk-group">
+            <div class="sk-head">Messaging &amp; Streaming</div>
+            <div class="sk-pills">
+              <span>Apache Kafka</span><span>AWS SQS</span><span>Event-Driven Arch.</span><span>Async Processing</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-col">
+          <div class="sk-group">
+            <div class="sk-head">Databases</div>
+            <div class="sk-pills">
+              <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>Neo4j</span>
+            </div>
+          </div>
+          <div class="sk-group">
+            <div class="sk-head">Languages</div>
+            <div class="sk-pills">
+              <span>Java</span><span>TypeScript</span><span>JavaScript</span><span>Python</span><span>SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section id="contact" class="section-alt">
+    <div class="container">
+      <div class="sec-label">05 — Contact</div>
+      <h2 class="sec-title">Let's <em>Connect.</em></h2>
+      <p class="sec-desc">I'm actively looking for full-time Software Engineer roles starting June 2026. Whether you have an opportunity or just want to talk systems design — my inbox is open.</p>
+
+      <div class="contact-layout">
+
+        <div class="contact-links">
+          <a href="mailto:sbadired@asu.edu" class="cl-item">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="cl-text">
+              <div class="cl-label">Email</div>
+              <div class="cl-value">sbadired@asu.edu</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="cl-item">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="cl-text">
+              <div class="cl-label">LinkedIn</div>
+              <div class="cl-value">linkedin.com/in/varun</div>
+            </div>
+          </a>
+          <a href="https://github.com" target="_blank" class="cl-item">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="cl-text">
+              <div class="cl-label">GitHub</div>
+              <div class="cl-value">github.com/varun</div>
+            </div>
+          </a>
+          <a href="https://substack.com" target="_blank" class="cl-item">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+            </div>
+            <div class="cl-text">
+              <div class="cl-label">Substack</div>
+              <div class="cl-value">varun.substack.com</div>
+            </div>
+          </a>
+          <a href="assets/Satya_Sai_Varun_Badireddi_Resume_06_01_26.pdf" download class="cl-item cl-resume">
+            <div class="cl-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9,15 12,18 15,15"/></svg>
+            </div>
+            <div class="cl-text">
+              <div class="cl-label">Resume</div>
+              <div class="cl-value">Download PDF ↓</div>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">Name</label>
+              <input type="text"  id="cf-name"  name="name"    placeholder="Your name"  required />
+            </div>
+            <div class="cf-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email"   placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="What's this about?" />
+          </div>
+          <div class="cf-field">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" rows="5" placeholder="Tell me about the role, project, or question…" required></textarea>
+          </div>
+          <button type="submit" class="btn-fill cf-submit">Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+          </button>
+          <div id="formStatus" class="cf-status"></div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="foot-logo">VB<span class="dot">.</span></a>
+      <p class="foot-copy">Designed &amp; built by Satya Sai Varun Badireddi &mdash; 2026</p>
+      <div class="foot-links">
+        <a href="https://github.com"   target="_blank">GitHub</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://substack.com" target="_blank">Substack</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>

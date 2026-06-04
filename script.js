@@ -1,224 +1,245 @@
-(function () {
-  const navToggle = document.querySelector("[data-nav-toggle]");
-  const navLinks = document.querySelector("[data-nav-links]");
-  const header = document.querySelector("[data-header]");
-  const toast = document.querySelector("[data-toast]");
+/* =============================================
+   VARUN BADIREDDI — PORTFOLIO v2
+   script.js
+   ============================================= */
 
-  function closeMenu() {
-    if (!navToggle || !navLinks) return;
-    navLinks.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Open navigation");
-    document.body.classList.remove("menu-open");
-  }
+/* ── NAVBAR SCROLL ─────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 24);
+}, { passive: true });
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-      document.body.classList.toggle("menu-open", isOpen);
-    });
+/* ── HAMBURGER ──────────────────────────────── */
+const hamburger   = document.getElementById('hamburger');
+const mobileMenu  = document.getElementById('mobileMenu');
 
-    navLinks.addEventListener("click", (event) => {
-      if (event.target.closest("a")) closeMenu();
-    });
-  }
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
 
-  const sectionLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
-  const sections = sectionLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          sectionLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-          });
-        });
-      },
-      { rootMargin: "-45% 0px -48% 0px", threshold: 0.01 }
-    );
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  function showToast(message) {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add("show");
-    window.clearTimeout(showToast.timer);
-    showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1800);
-  }
-
-  document.querySelectorAll("[data-copy-email]").forEach((button) => {
-    const label = button.querySelector("[data-copy-label]");
-    const email = button.getAttribute("data-copy-email");
-
-    button.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(email);
-        if (label) label.textContent = "Copied";
-        showToast("Email copied to clipboard");
-        window.setTimeout(() => {
-          if (label) label.textContent = "Copy Email";
-        }, 1600);
-      } catch (error) {
-        window.location.href = `mailto:${email}`;
-      }
-    });
+document.querySelectorAll('.mob-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
   });
+});
 
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
+document.addEventListener('click', e => {
+  if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+  }
+});
+
+/* ── ACTIVE NAV HIGHLIGHT ───────────────────── */
+const sections  = Array.from(document.querySelectorAll('section[id]'));
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
   });
+  navAnchors.forEach(a => {
+    const active = a.getAttribute('href') === `#${current}`;
+    a.classList.toggle('active', active);
+  });
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
 
-  window.addEventListener("scroll", () => {
-    if (!header) return;
-    header.classList.toggle("scrolled", window.scrollY > 8);
-  }, { passive: true });
+/* ── SCROLL-TRIGGERED FADE-INS ──────────────── */
+const fadeEls = document.querySelectorAll(
+  '.tl-item, .project-featured, .proj-card, .sk-group, ' +
+  '.about-body, .about-card, .about-headline, .cl-item, .contact-form, ' +
+  '.sec-title, .sec-desc, .sec-label'
+);
 
-  const canvas = document.getElementById("system-canvas");
-  if (!canvas) return;
+fadeEls.forEach(el => el.classList.add('fade-in'));
 
-  const context = canvas.getContext("2d");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const palette = {
-    lines: "rgba(190, 210, 226, 0.18)",
-    text: "rgba(255, 255, 255, 0.8)",
-    node: "rgba(110, 231, 216, 0.92)",
-    nodeAlt: "rgba(255, 184, 107, 0.92)",
-    nodeThird: "rgba(129, 140, 248, 0.92)"
-  };
-
-  const nodes = [
-    { label: "Angular", x: 0.68, y: 0.19, color: palette.nodeAlt },
-    { label: "NestJS", x: 0.82, y: 0.28, color: palette.node },
-    { label: "Spring Boot", x: 0.61, y: 0.42, color: palette.nodeThird },
-    { label: "Kafka", x: 0.78, y: 0.52, color: palette.nodeAlt },
-    { label: "Redis", x: 0.55, y: 0.62, color: palette.node },
-    { label: "AWS SQS", x: 0.9, y: 0.68, color: palette.nodeThird },
-    { label: "Kubernetes", x: 0.7, y: 0.79, color: palette.node },
-    { label: "PostgreSQL", x: 0.48, y: 0.32, color: palette.nodeAlt },
-    { label: "CI/CD", x: 0.88, y: 0.12, color: palette.nodeThird }
-  ];
-
-  const edges = [
-    [0, 1],
-    [1, 2],
-    [1, 3],
-    [2, 4],
-    [3, 5],
-    [4, 6],
-    [5, 6],
-    [2, 7],
-    [8, 1],
-    [8, 6]
-  ];
-
-  const pointer = { x: 0, y: 0 };
-  let width = 0;
-  let height = 0;
-  let pixelRatio = 1;
-  let frame = 0;
-
-  function resizeCanvas() {
-    pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-    const rect = canvas.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
-    canvas.width = Math.floor(width * pixelRatio);
-    canvas.height = Math.floor(height * pixelRatio);
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-  }
-
-  function pointFor(node, index, time) {
-    const sway = prefersReducedMotion ? 0 : Math.sin(time / 1100 + index) * 8;
-    const drift = prefersReducedMotion ? 0 : Math.cos(time / 1400 + index * 0.6) * 6;
-    return {
-      x: node.x * width + pointer.x * (index % 2 ? 10 : -8) + drift,
-      y: node.y * height + pointer.y * (index % 2 ? -8 : 10) + sway
-    };
-  }
-
-  function drawGrid(time) {
-    context.save();
-    context.strokeStyle = "rgba(255, 255, 255, 0.06)";
-    context.lineWidth = 1;
-    const gap = 56;
-    const offset = prefersReducedMotion ? 0 : (time / 80) % gap;
-
-    for (let x = width * 0.42 + offset; x < width + gap; x += gap) {
-      context.beginPath();
-      context.moveTo(x, 0);
-      context.lineTo(x - width * 0.26, height);
-      context.stroke();
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    for (let y = -gap + offset; y < height + gap; y += gap) {
-      context.beginPath();
-      context.moveTo(width * 0.38, y);
-      context.lineTo(width, y + height * 0.16);
-      context.stroke();
-    }
+fadeEls.forEach(el => io.observe(el));
 
-    context.restore();
+/* ── TERMINAL TYPEWRITER ───────────────────── */
+const termBody = document.getElementById('terminalBody');
+
+const termLines = [
+  { kind: 'prompt', text: 'whoami' },
+  { kind: 'out',    text: 'Satya Sai Varun Badireddi', hl: true },
+  { kind: 'prompt', text: 'cat role.txt' },
+  { kind: 'out',    text: 'Backend & Full-Stack Engineer' },
+  { kind: 'prompt', text: 'ls skills/ | head -6' },
+  { kind: 'out',    text: 'Java  SpringBoot  TypeScript' },
+  { kind: 'out',    text: 'Kafka  Redis  Docker  K8s' },
+  { kind: 'prompt', text: 'git log --oneline -3' },
+  { kind: 'out',    text: 'a3f9c1  Anime Rec Platform', hl: true },
+  { kind: 'out',    text: 'b72de4  Graph Analytics Pipeline', hl: true },
+  { kind: 'out',    text: 'c18fa0  Depression Risk ML Model', hl: true },
+  { kind: 'prompt', text: 'echo $AVAILABILITY' },
+  { kind: 'out',    text: '● Open to roles · June 2026', hl: true },
+];
+
+const DELAYS = { prompt: 650, out: 280 };
+let idx = 0;
+let cursorNode = null;
+
+function removeCursor() {
+  if (cursorNode && cursorNode.parentNode) cursorNode.remove();
+  cursorNode = null;
+}
+
+function addCursor() {
+  removeCursor();
+  cursorNode = document.createElement('span');
+  cursorNode.className = 't-cursor';
+  termBody.appendChild(cursorNode);
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function nextLine() {
+  if (idx >= termLines.length) { addCursor(); return; }
+  const l = termLines[idx++];
+
+  const div = document.createElement('span');
+  div.className = 't-line';
+
+  if (l.kind === 'prompt') {
+    div.innerHTML = `<span class="t-prompt">❯ </span><span class="t-cmd">${esc(l.text)}</span>`;
+  } else {
+    const cls = l.hl ? 't-hl' : '';
+    div.innerHTML = `<span class="t-out ${cls}">${esc(l.text)}</span>`;
   }
 
-  function render(time) {
-    frame = time || 0;
-    context.clearRect(0, 0, width, height);
-    drawGrid(frame);
+  termBody.appendChild(div);
+  termBody.scrollTop = termBody.scrollHeight;
 
-    const points = nodes.map((node, index) => pointFor(node, index, frame));
+  setTimeout(nextLine, DELAYS[l.kind]);
+}
 
-    edges.forEach(([from, to]) => {
-      const a = points[from];
-      const b = points[to];
-      const gradient = context.createLinearGradient(a.x, a.y, b.x, b.y);
-      gradient.addColorStop(0, "rgba(110, 231, 216, 0.22)");
-      gradient.addColorStop(1, "rgba(129, 140, 248, 0.16)");
-      context.strokeStyle = gradient;
-      context.lineWidth = 1.4;
-      context.beginPath();
-      context.moveTo(a.x, a.y);
-      context.lineTo(b.x, b.y);
-      context.stroke();
-    });
+setTimeout(nextLine, 800);
 
-    points.forEach((point, index) => {
-      const node = nodes[index];
-      const pulse = prefersReducedMotion ? 0 : Math.sin(frame / 520 + index) * 2;
-      context.beginPath();
-      context.fillStyle = "rgba(255, 255, 255, 0.08)";
-      context.arc(point.x, point.y, 31 + pulse, 0, Math.PI * 2);
-      context.fill();
+/* ── CONTACT FORM — EmailJS ─────────────────────
+ *
+ *  SETUP (5 minutes, free):
+ *  1. Sign up at https://www.emailjs.com (free tier = 200 emails/month)
+ *  2. Add an Email Service (Gmail / Outlook / etc.) → note your SERVICE_ID
+ *  3. Create an Email Template with these variables:
+ *       {{from_name}}   {{from_email}}   {{subject}}   {{message}}
+ *     → note your TEMPLATE_ID
+ *  4. Go to Account → API Keys → copy your Public Key
+ *  5. In index.html replace  YOUR_PUBLIC_KEY  with it
+ *  6. Replace  YOUR_SERVICE_ID  and  YOUR_TEMPLATE_ID  below
+ *
+ * ────────────────────────────────────────────── */
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
 
-      context.beginPath();
-      context.fillStyle = node.color;
-      context.arc(point.x, point.y, 7, 0, Math.PI * 2);
-      context.fill();
+function handleFormSubmit(e) {
+  e.preventDefault();
 
-      context.fillStyle = palette.text;
-      context.font = "600 13px Inter, system-ui, sans-serif";
-      context.fillText(node.label, point.x + 14, point.y + 5);
-    });
+  const form   = e.target;
+  const status = document.getElementById('formStatus');
+  const btn    = form.querySelector('.cf-submit');
 
-    if (!prefersReducedMotion) requestAnimationFrame(render);
+  const name    = form.name.value.trim();
+  const email   = form.email.value.trim();
+  const subject = form.subject ? form.subject.value.trim() : '';
+  const message = form.message.value.trim();
+
+  /* ── Validation ── */
+  if (!name || !email || !message) {
+    showStatus('⚠ Please fill in your name, email, and message.', 'error', status);
+    return;
+  }
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRx.test(email)) {
+    showStatus('⚠ Please enter a valid email address.', 'error', status);
+    return;
   }
 
-  resizeCanvas();
-  render(0);
+  /* ── Sending state ── */
+  btn.disabled = true;
+  btn.innerHTML = `
+    <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+    </svg>
+    Sending…`;
+  showStatus('', '', status);
 
-  window.addEventListener("resize", () => {
-    resizeCanvas();
-    render(frame);
-  }, { passive: true });
+  /* ── EmailJS send ── */
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    from_name:  name,
+    from_email: email,
+    subject:    subject || 'Portfolio Contact',
+    message:    message,
+    reply_to:   email,
+  })
+  .then(() => {
+    showStatus('✓ Message sent! I\'ll get back to you soon.', 'success', status);
+    form.reset();
+  })
+  .catch((err) => {
+    console.error('EmailJS error:', err);
+    showStatus('✗ Something went wrong. Please email me directly at sbadired@asu.edu', 'error', status);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.innerHTML = `Send Message
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12,5 19,12 12,19"/>
+      </svg>`;
+  });
+}
 
-  window.addEventListener("pointermove", (event) => {
-    pointer.x = (event.clientX / window.innerWidth - 0.5) * 2;
-    pointer.y = (event.clientY / window.innerHeight - 0.5) * 2;
+function showStatus(msg, type, el) {
+  el.textContent = msg;
+  el.className   = type ? `cf-status ${type}` : 'cf-status';
+}
+
+/* ── SUBTLE MOUSE GLOW (desktop only) ──────── */
+if (window.matchMedia('(min-width: 900px) and (hover: hover)').matches) {
+  const glow = document.createElement('div');
+  Object.assign(glow.style, {
+    position:       'fixed',
+    width:          '500px',
+    height:         '500px',
+    borderRadius:   '50%',
+    background:     'radial-gradient(circle, rgba(124,111,255,0.045) 0%, transparent 65%)',
+    pointerEvents:  'none',
+    transform:      'translate(-50%,-50%)',
+    zIndex:         '0',
+    top:            '-999px',
+    left:           '-999px',
+    transition:     'top 0.08s linear, left 0.08s linear',
+  });
+  document.body.appendChild(glow);
+
+  document.addEventListener('mousemove', ({ clientX, clientY }) => {
+    glow.style.left = clientX + 'px';
+    glow.style.top  = clientY + 'px';
   }, { passive: true });
-})();
+}
+
+/* ── CONSOLE EASTER EGG ─────────────────────── */
+console.log(
+  '%c👋 Hey curious dev!',
+  'color:#7c6fff;font-family:monospace;font-size:15px;font-weight:bold;'
+);
+console.log(
+  '%cBuilt with HTML · CSS · Vanilla JS\nLet\'s connect → sbadired@asu.edu',
+  'color:#9898b8;font-family:monospace;font-size:12px;'
+);
