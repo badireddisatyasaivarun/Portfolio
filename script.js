@@ -206,7 +206,7 @@ if (window.matchMedia('(min-width: 900px) and (hover: hover)').matches) {
     width:          '500px',
     height:         '500px',
     borderRadius:   '50%',
-    background:     'radial-gradient(circle, rgba(124,111,255,0.045) 0%, transparent 65%)',
+    background:     'radial-gradient(circle, rgba(108,92,231,0.04) 0%, transparent 65%)',
     pointerEvents:  'none',
     transform:      'translate(-50%,-50%)',
     zIndex:         '0',
