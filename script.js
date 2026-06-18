@@ -78,7 +78,7 @@ const termLines = [
   { kind: 'out',    text: 'Satya Sai Varun Badireddi', hl: true },
   { kind: 'prompt', text: 'cat role.txt' },
   { kind: 'out',    text: 'Backend & Full-Stack Engineer' },
-  { kind: 'prompt', text: 'ls skills/ | head -6' },
+  { kind: 'prompt', text: 'ls skills/ | head -7' },
   { kind: 'out',    text: 'Java  SpringBoot  TypeScript' },
   { kind: 'out',    text: 'Kafka  Redis  Docker  K8s' },
   { kind: 'prompt', text: 'git log --oneline -3' },
